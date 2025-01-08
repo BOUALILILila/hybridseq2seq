@@ -1,5 +1,5 @@
 # Hybrid Semantic-Syntactic Decoding for Compositional Generalization
-We propose a euclidean-hyperbolic hybrid seq2seq model based on the Transformer architecture for compositional generalization in COGS semantic parsing tasks. The goal of this approach is to inject structural information about the sentence into the attention mechanism at the decoder level, which has been proven ineffective at using structural information. We propose using hyperbolic instead of Euclidean embeddings to encode structural information as recent research demonstrates its odds of capturing complex hierarchical structures with exceptionally high capacity and continuous tree-like properties.
+We propose a Euclidean-Hyperbolic hybrid seq2seq model based on the Transformer architecture for compositional generalization in COGS semantic parsing tasks. The goal of this approach is to inject structural information about the sentence into the attention mechanism at the decoder level, which has been proven ineffective at using structural information. We propose using hyperbolic instead of Euclidean embeddings to encode structural information as recent research demonstrates its odds of capturing complex hierarchical structures with exceptionally high capacity and continuous tree-like properties.
 
 We use a traditional Euclidean encoder model combined with a hybrid decoder model. The attention mechanism in the decoder layers combines usual attention weights computed from Euclidean token representations that capture semantic information, with attention weights computed based on hyperbolic token representations that capture structural information. The hyperbolic token representations encode the syntactic and semantic structures of the source and target sequences in COGS, respectively.
 
@@ -115,5 +115,3 @@ task.run_train()
 print("\n\nTesting...\n")
 task.run_test()
 ```
-### Examples
-The ```examples``` directory contains full example scripts with the configuration (.yaml) files for diffrent experiments.
