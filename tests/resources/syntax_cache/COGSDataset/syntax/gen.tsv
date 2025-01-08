@@ -1,0 +1,4 @@
+Paula painted a cake in a closet .	( S ( NP ( N Paula ) ) ( VP ( V painted ) ( NP ( Det a ) ( N cake ) ( PP ( P in ) ( NP ( Det a ) ( N closet ) ) ) ) ) )	prim_to_subj_proper
+Zoe thought that a hippo cleaned .	( S ( NP ( N Zoe ) ) ( VP ( V thought ) ( C that ) ( S ( NP ( Det a ) ( N hippo ) ) ( VP ( V cleaned ) ) ) ) )	only_seen_as_unacc_subj_as_obj_omitted_transitive_subj
+The princess teleported a cookie to the goose .	( S ( NP ( Det The ) ( N princess ) ) ( VP ( V teleported ) ( NP ( Det a ) ( N cookie ) ) ( PP ( P to ) ( NP ( Det the ) ( N goose ) ) ) ) )	do_dative_to_pp_dative
+A cockroach gave a pretzel to Olivia .	( S ( NP ( Det A ) ( N cockroach ) ) ( VP ( V gave ) ( NP ( Det a ) ( N pretzel ) ) ( PP ( P to ) ( NP ( N Olivia ) ) ) ) )	obj_to_subj_common

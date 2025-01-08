@@ -1,0 +1,70 @@
+task: COGS
+seed: 42
+# Data parameters
+data:
+  cache_dir: tests/resources/syntax_cache
+  syntax_parser: gold
+  max_seq_length: 128
+  uncased_vocab: True
+  shared_vocab: True
+  add_sos_token: True
+  add_eos_token: True
+
+# Training parameters
+training:
+  log_wandb: False
+  output_folder: tests/resources/syntax_output/COGS
+  task: classification
+  learner: default
+  max_epochs: 2
+  # precision: 16-mixed
+  precision: 32-true
+  # val_check_interval:
+  check_val_every_n_epoch: 1
+  # limit_train_batches: 4
+  log_every_n_steps: 2
+  save_every_n_epochs: 1
+  save_top_k: 5
+  loss:
+    name: cross-entropy
+  optimizer:
+    name: RiemannianAdam
+    learning_rate: 0.001
+    weight_decay: 0.0001
+  train_batch_size: 16
+  valid_batch_size: 8
+  test_batch_size: 8
+  train_num_workers: 4
+  valid_num_workers: 1
+
+# Model parameters
+model:
+  name: hybrid
+  encoder: euclidean-encoder
+  decoder: hybrid-decoder
+  tie_input_output_emb: true
+  hidden_size: 64
+  hyperbolic_hidden_size: 16
+  hyperbolic_scale: 1.
+  num_attention_heads: 2
+  attention_probs_dropout_prob: 0.1
+  max_position_embeddings: 128
+  layer_norm_eps: 1.0e-12
+  hidden_dropout_prob: 0.1
+  num_hidden_layers: 2
+  intermediate_size: 64
+  hidden_act: relu
+  position_embedding_type: learned
+  scale_mode: none
+  init_embeddings: normal
+  combine_euclidean_hyperbolic_attention_scores: False
+  hyperbolic_attention_score_weight: 1.
+  semantic_parser_epsilon: 0.25
+  semantic_parser_relation_edge_weight: 0.5
+  default_max_distance: 30.
+  hyperbolic_scale: 1.
+  generation:
+    stop_criteria:
+      name: "max-length"
+    searcher:
+      name: "greedy-search"

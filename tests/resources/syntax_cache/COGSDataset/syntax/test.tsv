@@ -1,0 +1,8 @@
+Mila liked that the cake was offered to Emma .	( S ( NP ( N Mila ) ) ( VP ( V liked ) ( C that ) ( S ( NP ( Det the ) ( N cake ) ) ( VP ( AUX was ) ( V offered ) ( PP ( P to ) ( NP ( N Emma ) ) ) ) ) ) )	in_distribution
+A coach supported that the cake was snapped .	( S ( NP ( Det A ) ( N coach ) ) ( VP ( V supported ) ( C that ) ( S ( NP ( Det the ) ( N cake ) ) ( VP ( AUX was ) ( V snapped ) ) ) ) )	in_distribution
+The moose wanted to read .	( S ( NP ( Det The ) ( N moose ) ) ( VP ( V wanted ) ( INF to ) ( V read ) ) )	in_distribution
+A box was given to the cat by Aiden .	( S ( NP ( Det A ) ( N box ) ) ( VP ( AUX was ) ( V given ) ( PP ( P to ) ( NP ( Det the ) ( N cat ) ) ) ( BY by ) ( NP ( N Aiden ) ) ) )	in_distribution
+Emma cleaned the boy .	( S ( NP ( N Emma ) ) ( VP ( V cleaned ) ( NP ( Det the ) ( N boy ) ) ) )	in_distribution
+The dog painted the boy .	( S ( NP ( Det The ) ( N dog ) ) ( VP ( V painted ) ( NP ( Det the ) ( N boy ) ) ) )	in_distribution
+The sailor cleaned .	( S ( NP ( Det The ) ( N sailor ) ) ( VP ( V cleaned ) ) )	in_distribution
+The customer held the priest in a box .	( S ( NP ( Det The ) ( N customer ) ) ( VP ( V held ) ( NP ( Det the ) ( N priest ) ( PP ( P in ) ( NP ( Det a ) ( N box ) ) ) ) ) )	in_distribution

@@ -1,0 +1,32 @@
+A rose was helped by a dog .	rose ( x _ 1 ) AND help . theme ( x _ 3 , x _ 1 ) AND help . agent ( x _ 3 , x _ 6 ) AND dog ( x _ 6 )	in_distribution
+The sailor dusted a boy .	* sailor ( x _ 1 ) ; dust . agent ( x _ 2 , x _ 1 ) AND dust . theme ( x _ 2 , x _ 4 ) AND boy ( x _ 4 )	in_distribution
+Emma rolled a teacher .	roll . agent ( x _ 1 , Emma ) AND roll . theme ( x _ 1 , x _ 3 ) AND teacher ( x _ 3 )	in_distribution
+Evelyn rolled the girl .	* girl ( x _ 3 ) ; roll . agent ( x _ 1 , Evelyn ) AND roll . theme ( x _ 1 , x _ 3 )	in_distribution
+A cake was forwarded to Levi by Charlotte .	cake ( x _ 1 ) AND forward . theme ( x _ 3 , x _ 1 ) AND forward . recipient ( x _ 3 , Levi ) AND forward . agent ( x _ 3 , Charlotte )	in_distribution
+The captain ate .	* captain ( x _ 1 ) ; eat . agent ( x _ 2 , x _ 1 )	in_distribution
+The girl needed to cook .	* girl ( x _ 1 ) ; need . agent ( x _ 2 , x _ 1 ) AND need . xcomp ( x _ 2 , x _ 4 ) AND cook . agent ( x _ 4 , x _ 1 )	in_distribution
+A cake rolled .	cake ( x _ 1 ) AND roll . theme ( x _ 2 , x _ 1 )	in_distribution
+The cookie was passed to Emma .	* cookie ( x _ 1 ) ; pass . theme ( x _ 3 , x _ 1 ) AND pass . recipient ( x _ 3 , Emma )	in_distribution
+Emma ate the ring beside a bed .	* ring ( x _ 3 ) ; eat . agent ( x _ 1 , Emma ) AND eat . theme ( x _ 1 , x _ 3 ) AND ring . nmod . beside ( x _ 3 , x _ 6 ) AND bed ( x _ 6 )	in_distribution
+A horse gave the cake beside a table to the mouse .	* cake ( x _ 4 ) ; * mouse ( x _ 10 ) ; horse ( x _ 1 ) AND give . agent ( x _ 2 , x _ 1 ) AND give . theme ( x _ 2 , x _ 4 ) AND give . recipient ( x _ 2 , x _ 10 ) AND cake . nmod . beside ( x _ 4 , x _ 7 ) AND table ( x _ 7 )	in_distribution
+Amelia gave Emma a strawberry .	give . agent ( x _ 1 , Amelia ) AND give . recipient ( x _ 1 , Emma ) AND give . theme ( x _ 1 , x _ 4 ) AND strawberry ( x _ 4 )	in_distribution
+A cat disintegrated a girl .	cat ( x _ 1 ) AND disintegrate . agent ( x _ 2 , x _ 1 ) AND disintegrate . theme ( x _ 2 , x _ 4 ) AND girl ( x _ 4 )	in_distribution
+Eleanor sold Evelyn the cake .	* cake ( x _ 4 ) ; sell . agent ( x _ 1 , Eleanor ) AND sell . recipient ( x _ 1 , Evelyn ) AND sell . theme ( x _ 1 , x _ 4 )	in_distribution
+The book was lended to Benjamin by a cat .	* book ( x _ 1 ) ; lend . theme ( x _ 3 , x _ 1 ) AND lend . recipient ( x _ 3 , Benjamin ) AND lend . agent ( x _ 3 , x _ 8 ) AND cat ( x _ 8 )	in_distribution
+The cake was frozen by the giraffe .	* cake ( x _ 1 ) ; * giraffe ( x _ 6 ) ; freeze . theme ( x _ 3 , x _ 1 ) AND freeze . agent ( x _ 3 , x _ 6 )	in_distribution
+The donut was studied .	* donut ( x _ 1 ) ; study . theme ( x _ 3 , x _ 1 )	in_distribution
+Isabella forwarded a box on a tree to Emma .	forward . agent ( x _ 1 , Isabella ) AND forward . theme ( x _ 1 , x _ 3 ) AND forward . recipient ( x _ 1 , Emma ) AND box ( x _ 3 ) AND box . nmod . on ( x _ 3 , x _ 6 ) AND tree ( x _ 6 )	in_distribution
+A cake was stabbed by Scarlett .	cake ( x _ 1 ) AND stab . theme ( x _ 3 , x _ 1 ) AND stab . agent ( x _ 3 , Scarlett )	in_distribution
+A pencil was fed to Liam by the deer .	* deer ( x _ 8 ) ; pencil ( x _ 1 ) AND feed . theme ( x _ 3 , x _ 1 ) AND feed . recipient ( x _ 3 , Liam ) AND feed . agent ( x _ 3 , x _ 8 )	in_distribution
+The cake was eaten by Olivia .	* cake ( x _ 1 ) ; eat . theme ( x _ 3 , x _ 1 ) AND eat . agent ( x _ 3 , Olivia )	in_distribution
+The pen was offered to the girl by Emma .	* pen ( x _ 1 ) ; * girl ( x _ 6 ) ; offer . theme ( x _ 3 , x _ 1 ) AND offer . recipient ( x _ 3 , x _ 6 ) AND offer . agent ( x _ 3 , Emma )	in_distribution
+Oliver crumpled .	crumple . theme ( x _ 1 , Oliver )	in_distribution
+A butterfly cleaned .	butterfly ( x _ 1 ) AND clean . agent ( x _ 2 , x _ 1 )	in_distribution
+The melon was lended to a girl .	* melon ( x _ 1 ) ; lend . theme ( x _ 3 , x _ 1 ) AND lend . recipient ( x _ 3 , x _ 6 ) AND girl ( x _ 6 )	in_distribution
+A bottle was rolled by Olivia .	bottle ( x _ 1 ) AND roll . theme ( x _ 3 , x _ 1 ) AND roll . agent ( x _ 3 , Olivia )	in_distribution
+The priest ate .	* priest ( x _ 1 ) ; eat . agent ( x _ 2 , x _ 1 )	in_distribution
+The cat knew the boy .	* cat ( x _ 1 ) ; * boy ( x _ 4 ) ; know . agent ( x _ 2 , x _ 1 ) AND know . theme ( x _ 2 , x _ 4 )	in_distribution
+Olivia was slipped a pencil .	slip . recipient ( x _ 2 , Olivia ) AND slip . theme ( x _ 2 , x _ 4 ) AND pencil ( x _ 4 )	in_distribution
+Oliver awarded Isabella the donut .	* donut ( x _ 4 ) ; award . agent ( x _ 1 , Oliver ) AND award . recipient ( x _ 1 , Isabella ) AND award . theme ( x _ 1 , x _ 4 )	in_distribution
+The cake was liked by a lawyer .	* cake ( x _ 1 ) ; like . theme ( x _ 3 , x _ 1 ) AND like . agent ( x _ 3 , x _ 6 ) AND lawyer ( x _ 6 )	in_distribution
+A girl was awarded a cake in a soup .	girl ( x _ 1 ) AND award . recipient ( x _ 3 , x _ 1 ) AND award . theme ( x _ 3 , x _ 5 ) AND cake ( x _ 5 ) AND cake . nmod . in ( x _ 5 , x _ 8 ) AND soup ( x _ 8 )	in_distribution

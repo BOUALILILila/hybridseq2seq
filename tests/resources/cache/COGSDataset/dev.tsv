@@ -1,0 +1,16 @@
+Liam hoped that a box was burned by a girl .	( S ( NP ( N Liam ) ) ( VP ( V hoped ) ( C that ) ( S ( NP ( Det a ) ( N box ) ) ( VP ( AUX was ) ( V burned ) ( BY by ) ( NP ( Det a ) ( N girl ) ) ) ) ) )	in_distribution
+The donkey lended the cookie to a mother .	( S ( NP ( Det The ) ( N donkey ) ) ( VP ( V lended ) ( NP ( Det the ) ( N cookie ) ) ( PP ( P to ) ( NP ( Det a ) ( N mother ) ) ) ) )	in_distribution
+A melon was given to a girl by the guard .	( S ( NP ( Det A ) ( N melon ) ) ( VP ( AUX was ) ( V given ) ( PP ( P to ) ( NP ( Det a ) ( N girl ) ) ) ( BY by ) ( NP ( Det the ) ( N guard ) ) ) )	in_distribution
+A donut was given to a butterfly .	( S ( NP ( Det A ) ( N donut ) ) ( VP ( AUX was ) ( V given ) ( PP ( P to ) ( NP ( Det a ) ( N butterfly ) ) ) ) )	in_distribution
+A rose was mailed to Isabella .	( S ( NP ( Det A ) ( N rose ) ) ( VP ( AUX was ) ( V mailed ) ( PP ( P to ) ( NP ( N Isabella ) ) ) ) )	in_distribution
+The girl offered the weapon beside a machine to a chicken .	( S ( NP ( Det The ) ( N girl ) ) ( VP ( V offered ) ( NP ( Det the ) ( N weapon ) ( PP ( P beside ) ( NP ( Det a ) ( N machine ) ) ) ) ( PP ( P to ) ( NP ( Det a ) ( N chicken ) ) ) ) )	in_distribution
+A donut was touched by Emma .	( S ( NP ( Det A ) ( N donut ) ) ( VP ( AUX was ) ( V touched ) ( BY by ) ( NP ( N Emma ) ) ) )	in_distribution
+Liam painted a box on a table beside the chair .	( S ( NP ( N Liam ) ) ( VP ( V painted ) ( NP ( Det a ) ( N box ) ( PP ( P on ) ( NP ( Det a ) ( N table ) ( PP ( P beside ) ( NP ( Det the ) ( N chair ) ) ) ) ) ) ) )	in_distribution
+Emma ate a hammer .	( S ( NP ( N Emma ) ) ( VP ( V ate ) ( NP ( Det a ) ( N hammer ) ) ) )	in_distribution
+A drink was juggled .	( S ( NP ( Det A ) ( N drink ) ) ( VP ( AUX was ) ( V juggled ) ) )	in_distribution
+Liam liked that the cake was tossed by Ava .	( S ( NP ( N Liam ) ) ( VP ( V liked ) ( C that ) ( S ( NP ( Det the ) ( N cake ) ) ( VP ( AUX was ) ( V tossed ) ( BY by ) ( NP ( N Ava ) ) ) ) ) )	in_distribution
+The box was found by Hannah .	( S ( NP ( Det The ) ( N box ) ) ( VP ( AUX was ) ( V found ) ( BY by ) ( NP ( N Hannah ) ) ) )	in_distribution
+Ava forwarded a chalk to a girl .	( S ( NP ( N Ava ) ) ( VP ( V forwarded ) ( NP ( Det a ) ( N chalk ) ) ( PP ( P to ) ( NP ( Det a ) ( N girl ) ) ) ) )	in_distribution
+Mason liked that the cookie was hunted .	( S ( NP ( N Mason ) ) ( VP ( V liked ) ( C that ) ( S ( NP ( Det the ) ( N cookie ) ) ( VP ( AUX was ) ( V hunted ) ) ) ) )	in_distribution
+A monkey ran .	( S ( NP ( Det A ) ( N monkey ) ) ( VP ( V ran ) ) )	in_distribution
+The hamburger was worshipped .	( S ( NP ( Det The ) ( N hamburger ) ) ( VP ( AUX was ) ( V worshipped ) ) )	in_distribution

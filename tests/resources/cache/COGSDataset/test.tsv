@@ -1,0 +1,8 @@
+Mila liked that the cake was offered to Emma .	* cake ( x _ 4 ) ; like . agent ( x _ 1 , Mila ) AND like . ccomp ( x _ 1 , x _ 6 ) AND offer . theme ( x _ 6 , x _ 4 ) AND offer . recipient ( x _ 6 , Emma )	in_distribution
+A coach supported that the cake was snapped .	* cake ( x _ 5 ) ; coach ( x _ 1 ) AND support . agent ( x _ 2 , x _ 1 ) AND support . ccomp ( x _ 2 , x _ 7 ) AND snap . theme ( x _ 7 , x _ 5 )	in_distribution
+The moose wanted to read .	* moose ( x _ 1 ) ; want . agent ( x _ 2 , x _ 1 ) AND want . xcomp ( x _ 2 , x _ 4 ) AND read . agent ( x _ 4 , x _ 1 )	in_distribution
+A box was given to the cat by Aiden .	* cat ( x _ 6 ) ; box ( x _ 1 ) AND give . theme ( x _ 3 , x _ 1 ) AND give . recipient ( x _ 3 , x _ 6 ) AND give . agent ( x _ 3 , Aiden )	in_distribution
+Emma cleaned the boy .	* boy ( x _ 3 ) ; clean . agent ( x _ 1 , Emma ) AND clean . theme ( x _ 1 , x _ 3 )	in_distribution
+The dog painted the boy .	* dog ( x _ 1 ) ; * boy ( x _ 4 ) ; paint . agent ( x _ 2 , x _ 1 ) AND paint . theme ( x _ 2 , x _ 4 )	in_distribution
+The sailor cleaned .	* sailor ( x _ 1 ) ; clean . agent ( x _ 2 , x _ 1 )	in_distribution
+The customer held the priest in a box .	* customer ( x _ 1 ) ; * priest ( x _ 4 ) ; hold . agent ( x _ 2 , x _ 1 ) AND hold . theme ( x _ 2 , x _ 4 ) AND priest . nmod . in ( x _ 4 , x _ 7 ) AND box ( x _ 7 )	in_distribution

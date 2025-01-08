@@ -1,0 +1,4 @@
+A rose was helped by a dog .	rose ( x _ 1 ) AND help . theme ( x _ 3 , x _ 1 ) AND help . agent ( x _ 3 , x _ 6 ) AND dog ( x _ 6 )	in_distribution
+The sailor dusted a boy .	* sailor ( x _ 1 ) ; dust . agent ( x _ 2 , x _ 1 ) AND dust . theme ( x _ 2 , x _ 4 ) AND boy ( x _ 4 )	in_distribution
+Emma rolled a teacher .	roll . agent ( x _ 1 , Emma ) AND roll . theme ( x _ 1 , x _ 3 ) AND teacher ( x _ 3 )	in_distribution
+Evelyn rolled the girl .	* girl ( x _ 3 ) ; roll . agent ( x _ 1 , Evelyn ) AND roll . theme ( x _ 1 , x _ 3 )	in_distribution

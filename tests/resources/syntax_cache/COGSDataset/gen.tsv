@@ -1,0 +1,4 @@
+Paula painted a cake in a closet .	paint . agent ( x _ 1 , Paula ) AND paint . theme ( x _ 1 , x _ 3 ) AND cake ( x _ 3 ) AND cake . nmod . in ( x _ 3 , x _ 6 ) AND closet ( x _ 6 )	prim_to_subj_proper
+Zoe thought that a hippo cleaned .	think . agent ( x _ 1 , Zoe ) AND think . ccomp ( x _ 1 , x _ 5 ) AND hippo ( x _ 4 ) AND clean . agent ( x _ 5 , x _ 4 )	only_seen_as_unacc_subj_as_obj_omitted_transitive_subj
+The princess teleported a cookie to the goose .	* princess ( x _ 1 ) ; * goose ( x _ 7 ) ; teleport . agent ( x _ 2 , x _ 1 ) AND teleport . theme ( x _ 2 , x _ 4 ) AND teleport . recipient ( x _ 2 , x _ 7 ) AND cookie ( x _ 4 )	do_dative_to_pp_dative
+A cockroach gave a pretzel to Olivia .	cockroach ( x _ 1 ) AND give . agent ( x _ 2 , x _ 1 ) AND give . theme ( x _ 2 , x _ 4 ) AND give . recipient ( x _ 2 , Olivia ) AND pretzel ( x _ 4 )	obj_to_subj_common

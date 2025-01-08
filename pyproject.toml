@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "hybridseq2seq"
+version = "0.1.0"
+description = "Injecting strucutral information into seq2seq models via hyperbolic syntactic representations"
+authors = ["LilaBOUALILI <boualili18lila@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/BOUALILILila/hybridseq2seq"
+keywords = ["seq2seq", "semantic parsing", "hyperbolic embeddings"]
+
+[tool.poetry.dependencies]
+urllib3 = "1.26.15"
+python = "^3.8"
+numpy = "^1.21"
+tqdm = "4.65.0"
+coloredlogs = "15.0.1"
+verboselogs = "1.7"
+stanza = "1.5.0"
+networkx = "3.1"
+matplotlib = "3.6.0"
+geoopt = "^0.5.0"
+lark = "^1.1.5"
+pyyaml = "^6.0"
+pydot = "^1.4.2"
+graphviz = "^0.20.1"
+pydot-ng = "^2.0.0"
+lightning = "^2.0.2"
+wandb = "^0.15.5"
+nltk = "^3.8.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

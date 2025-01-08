@@ -1,0 +1,16 @@
+Liam hoped that a box was burned by a girl .	hope . agent ( x _ 1 , Liam ) AND hope . ccomp ( x _ 1 , x _ 6 ) AND box ( x _ 4 ) AND burn . theme ( x _ 6 , x _ 4 ) AND burn . agent ( x _ 6 , x _ 9 ) AND girl ( x _ 9 )	in_distribution
+The donkey lended the cookie to a mother .	* donkey ( x _ 1 ) ; * cookie ( x _ 4 ) ; lend . agent ( x _ 2 , x _ 1 ) AND lend . theme ( x _ 2 , x _ 4 ) AND lend . recipient ( x _ 2 , x _ 7 ) AND mother ( x _ 7 )	in_distribution
+A melon was given to a girl by the guard .	* guard ( x _ 9 ) ; melon ( x _ 1 ) AND give . theme ( x _ 3 , x _ 1 ) AND give . recipient ( x _ 3 , x _ 6 ) AND give . agent ( x _ 3 , x _ 9 ) AND girl ( x _ 6 )	in_distribution
+A donut was given to a butterfly .	donut ( x _ 1 ) AND give . theme ( x _ 3 , x _ 1 ) AND give . recipient ( x _ 3 , x _ 6 ) AND butterfly ( x _ 6 )	in_distribution
+A rose was mailed to Isabella .	rose ( x _ 1 ) AND mail . theme ( x _ 3 , x _ 1 ) AND mail . recipient ( x _ 3 , Isabella )	in_distribution
+The girl offered the weapon beside a machine to a chicken .	* girl ( x _ 1 ) ; * weapon ( x _ 4 ) ; offer . agent ( x _ 2 , x _ 1 ) AND offer . theme ( x _ 2 , x _ 4 ) AND offer . recipient ( x _ 2 , x _ 10 ) AND weapon . nmod . beside ( x _ 4 , x _ 7 ) AND machine ( x _ 7 ) AND chicken ( x _ 10 )	in_distribution
+A donut was touched by Emma .	donut ( x _ 1 ) AND touch . theme ( x _ 3 , x _ 1 ) AND touch . agent ( x _ 3 , Emma )	in_distribution
+Liam painted a box on a table beside the chair .	* chair ( x _ 9 ) ; paint . agent ( x _ 1 , Liam ) AND paint . theme ( x _ 1 , x _ 3 ) AND box ( x _ 3 ) AND box . nmod . on ( x _ 3 , x _ 6 ) AND table ( x _ 6 ) AND table . nmod . beside ( x _ 6 , x _ 9 )	in_distribution
+Emma ate a hammer .	eat . agent ( x _ 1 , Emma ) AND eat . theme ( x _ 1 , x _ 3 ) AND hammer ( x _ 3 )	in_distribution
+A drink was juggled .	drink ( x _ 1 ) AND juggle . theme ( x _ 3 , x _ 1 )	in_distribution
+Liam liked that the cake was tossed by Ava .	* cake ( x _ 4 ) ; like . agent ( x _ 1 , Liam ) AND like . ccomp ( x _ 1 , x _ 6 ) AND toss . theme ( x _ 6 , x _ 4 ) AND toss . agent ( x _ 6 , Ava )	in_distribution
+The box was found by Hannah .	* box ( x _ 1 ) ; find . theme ( x _ 3 , x _ 1 ) AND find . agent ( x _ 3 , Hannah )	in_distribution
+Ava forwarded a chalk to a girl .	forward . agent ( x _ 1 , Ava ) AND forward . theme ( x _ 1 , x _ 3 ) AND forward . recipient ( x _ 1 , x _ 6 ) AND chalk ( x _ 3 ) AND girl ( x _ 6 )	in_distribution
+Mason liked that the cookie was hunted .	* cookie ( x _ 4 ) ; like . agent ( x _ 1 , Mason ) AND like . ccomp ( x _ 1 , x _ 6 ) AND hunt . theme ( x _ 6 , x _ 4 )	in_distribution
+A monkey ran .	monkey ( x _ 1 ) AND run . agent ( x _ 2 , x _ 1 )	in_distribution
+The hamburger was worshipped .	* hamburger ( x _ 1 ) ; worship . theme ( x _ 3 , x _ 1 )	in_distribution

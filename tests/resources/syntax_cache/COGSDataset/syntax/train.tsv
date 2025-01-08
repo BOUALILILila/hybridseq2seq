@@ -1,0 +1,4 @@
+A rose was helped by a dog .	( S ( NP ( Det A ) ( N rose ) ) ( VP ( AUX was ) ( V helped ) ( BY by ) ( NP ( Det a ) ( N dog ) ) ) )	in_distribution
+The sailor dusted a boy .	( S ( NP ( Det The ) ( N sailor ) ) ( VP ( V dusted ) ( NP ( Det a ) ( N boy ) ) ) )	in_distribution
+Emma rolled a teacher .	( S ( NP ( N Emma ) ) ( VP ( V rolled ) ( NP ( Det a ) ( N teacher ) ) ) )	in_distribution
+Evelyn rolled the girl .	( S ( NP ( N Evelyn ) ) ( VP ( V rolled ) ( NP ( Det the ) ( N girl ) ) ) )	in_distribution
