@@ -1,4 +1,4 @@
-# copied from: https://github.com/huggingface/transformers/blob/main/src/transformers/activations.py
+# Original code https://github.com/huggingface/transformers/blob/main/src/transformers/activations.py
 import math
 from collections import OrderedDict
 

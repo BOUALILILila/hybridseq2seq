@@ -10,43 +10,10 @@ from ..utils import get_logger
 
 logger = get_logger(__name__)
 
-# class TransformerEncoderIntermediate(nn.Module):
-#     # config: intermediate_size, hidden_size, hidden_act
-#     def __init__(self, config):
-#         super().__init__()
-#         self.dense = nn.Linear(config.hidden_size, config.intermediate_size)
-#         # default: relu
-#         if isinstance(config.hidden_act, str):
-#             self.intermediate_act_fn = ACT2FN[config.hidden_act]
-#         else:
-#             self.intermediate_act_fn = config.hidden_act
-
-#     def forward(self, hidden_states: torch.Tensor) -> torch.Tensor:
-#         hidden_states = self.dense(hidden_states)
-#         hidden_states = self.intermediate_act_fn(hidden_states)
-#         return hidden_states
-
-# class TransformerEncoderOutput(nn.Module):
-#     # config: intermediate_size, hidden_size, layer_norm_eps, hidden_dropout_prob
-#     def __init__(self, config):
-#         super().__init__()
-#         self.dense = nn.Linear(config.intermediate_size, config.hidden_size)
-#         self.LayerNorm = nn.LayerNorm(config.hidden_size, eps=config.layer_norm_eps)
-#         self.dropout = nn.Dropout(config.hidden_dropout_prob)
-
-#     def forward(self, hidden_states: torch.Tensor, input_tensor: torch.Tensor) -> torch.Tensor:
-#         hidden_states = self.dense(hidden_states)
-#         hidden_states = self.dropout(hidden_states)
-#         hidden_states = self.LayerNorm(hidden_states + input_tensor)
-#         return hidden_states
-
 
 class TransformerEncoderLayer(nn.Module):
     def __init__(self, config):
         super().__init__()
-        # self.chunk_size_feed_forward = config.chunk_size_feed_forward
-        # self.seq_len_dim = 1
-
         self.attention = EuclideanAttention(config)
         self.intermediate = TransformerIntermediate(config)
         self.output = TransformerOutput(config)
@@ -70,22 +37,12 @@ class TransformerEncoderLayer(nn.Module):
             1:
         ]  # add self attentions if we output attention weights
 
-        # transformers/pytorch_utils.py use function apply_chunking_to_forward
-        # layer_output = apply_chunking_to_forward(
-        #     self.feed_forward_chunk, self.chunk_size_feed_forward, self.seq_len_dim, attention_output
-        # )
-
         intermediate_output = self.intermediate(attention_output)
         layer_output = self.output(intermediate_output, attention_output)
 
         outputs = (layer_output,) + outputs
 
         return outputs
-
-    # def feed_forward_chunk(self, attention_output):
-    #     intermediate_output = self.intermediate(attention_output)
-    #     layer_output = self.output(intermediate_output, attention_output)
-    #     return layer_output
 
 
 class TransformerEncoder(nn.Module):

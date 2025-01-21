@@ -104,8 +104,6 @@ class COGSDataModule(pl.LightningDataModule):
                 add_sos_token=self.add_sos_token,
                 add_eos_token=self.add_eos_token,
             )
-        # if stage == "predict":
-        #     self.test_set = COGSDataset(["gen"], shared_vocabulary=True, cache_dir=self.data_dir)
 
     def train_dataloader(self):
         return DataLoader(
@@ -143,6 +141,3 @@ class COGSDataModule(pl.LightningDataModule):
             num_workers=self.valid_num_workers,
             pin_memory=True,
         )
-
-    # def predict_dataloader(self):
-    #     return DataLoader(self.test_set, batch_size=32)

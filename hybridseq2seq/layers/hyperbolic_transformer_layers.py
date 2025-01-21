@@ -12,15 +12,9 @@ class HyperbolicTransformerIntermediate(nn.Module):
         self.dense = PoincareLinear(
             manifold, config.hyperbolic_hidden_size, config.hyperbolic_intermediate_size
         )
-        # # default: relu
-        # if isinstance(config.hidden_act, str):
-        #     self.intermediate_act_fn = ACT2FN[config.hidden_act]
-        # else:
-        #     self.intermediate_act_fn = config.hidden_act
 
     def forward(self, hidden_states: torch.Tensor) -> torch.Tensor:
         hidden_states = self.dense(hidden_states)
-        # hidden_states = self.intermediate_act_fn(hidden_states)
         return hidden_states
 
 
@@ -41,6 +35,5 @@ class HyperbolicTransformerOutput(nn.Module):
         hidden_states = self.manifold.mobius_fn_apply(
             lambda x: self.dropout(x), hidden_states
         )
-        # hidden_states = self.LayerNorm(hidden_states + input_tensor)
         hidden_states = self.manifold.mobius_add(input_tensor, hidden_states)
         return hidden_states

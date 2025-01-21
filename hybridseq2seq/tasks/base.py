@@ -42,8 +42,6 @@ class Task(pl.LightningModule):
         self.val_metric = self.create_metric(type_names=type_names)
         self.test_metric = self.create_metric(type_names=type_names, max_bad_samples=5)
 
-        # self.train_metric = self.create_metric(type_names=type_names, max_bad_samples=20)
-
         self.trainer = self.create_trainer(no_cuda)
 
         pl.seed_everything(self.config.seed, workers=True)
@@ -58,8 +56,6 @@ class Task(pl.LightningModule):
         checkpoint_callback = ModelCheckpoint(
             dirpath=self.config.training.output_folder,
             filename="{epoch}-{step}",
-            # save_on_train_epoch_end=True,
-            # every_n_train_steps=100,
             every_n_epochs=self.config.training.save_every_n_epochs,
             save_top_k=self.config.training.save_top_k,
             mode="max",
@@ -146,7 +142,7 @@ class Task(pl.LightningModule):
         return [self.out_vocab(seq.tolist()) for seq in batched_token_ids]
 
     def run_train(self) -> None:
-        # self.wandb_logger.watch(self, log="all")
+        self.wandb_logger.watch(self, log="all")
         last_model_path = (
             self.config.training.last_ckpt
             if self.config.training.last_ckpt is not None
@@ -159,7 +155,7 @@ class Task(pl.LightningModule):
             datamodule=self.data_module,
             ckpt_path=last_model_path,
         )
-        # self.wandb_logger.experiment.unwatch(self)
+        self.wandb_logger.experiment.unwatch(self)
 
     def run_validation(self) -> None:
         self.trainer.validate(self, datamodule=self.data_module)

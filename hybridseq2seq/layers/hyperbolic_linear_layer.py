@@ -26,12 +26,6 @@ class MobiusLinear(torch.nn.Module):
         self.bias = torch.nn.Parameter(torch.zeros(out_features))
 
         self.weight = torch.nn.Parameter(torch.randn(out_features, in_features))
-        # self.bias = geoopt.ManifoldParameter(
-        #     torch.zeros(out_features), manifold=self.manifold
-        # )
-        # self.weight =  geoopt.ManifoldParameter(
-        #     torch.randn(out_features, in_features), manifold=self.manifold
-        # )
 
         self.reset_parameters()
 
@@ -39,14 +33,12 @@ class MobiusLinear(torch.nn.Module):
     def reset_parameters(self):
         torch.nn.init.xavier_uniform_(self.weight, gain=math.sqrt(2))
         torch.nn.init.constant_(self.bias, 0.0)
-        # self.weight.set_(self.manifold.random_normal(*self.weight.shape, std=0.02))
 
     def forward(self, x: torch.Tensor):
         mv = self.manifold.mobius_matvec(self.weight, x)
         res = self.manifold.projx(mv)
 
         if self.use_bias:
-            # bias = self.bias.view(1, -1)
             hyp_bias = self.manifold.expmap0(self.bias)
             hyp_bias = self.manifold.projx(hyp_bias)
             res = self.manifold.mobius_add(res, hyp_bias)

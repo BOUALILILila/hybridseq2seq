@@ -103,7 +103,6 @@ class TransformerDecoder(nn.Module):
                 encoder_hidden_states=encoder_hidden_states,
                 encoder_attention_mask=encoder_attention_mask,
                 head_mask=layer_head_mask,
-                # past_key_value = past_key_value,
                 output_attentions=output_attentions,
             )
 

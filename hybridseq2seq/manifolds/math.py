@@ -25,9 +25,7 @@ def artan_k_zero_taylor(x: torch.Tensor, k: torch.Tensor, order: int = -1):
     elif order == 2:
         return x - 1 / 3 * k * x**3 + 1 / 5 * k**2 * x**5
     elif order == 3:
-        return (
-            x - 1 / 3 * k * x**3 + 1 / 5 * k**2 * x**5 - 1 / 7 * k**3 * x**7
-        )
+        return x - 1 / 3 * k * x**3 + 1 / 5 * k**2 * x**5 - 1 / 7 * k**3 * x**7
     elif order == 4:
         return (
             x
@@ -75,7 +73,7 @@ def artan_k(x: torch.Tensor, k: torch.Tensor):
         return torch.where(k_zero, artan_k_zero_taylor(x, k, order=1), artan_k_nonzero)
 
 
-# Copied from: https://github.com/mil-tokyo/hyperbolic_nn_plusplus/blob/28737e22822562ac18d5ea03f8c3e3929e945a83/geoopt_plusplus/manifolds/stereographic/math.py#L2085
+# Original code https://github.com/mil-tokyo/hyperbolic_nn_plusplus/blob/28737e22822562ac18d5ea03f8c3e3929e945a83/geoopt_plusplus/manifolds/stereographic/math.py#L2085
 def weighted_midpoint_bmm(
     xs: torch.Tensor,
     weights: torch.Tensor,
@@ -133,7 +131,6 @@ def weighted_midpoint_bmm(
     )
 
 
-# @torch.jit.script
 def _weighted_midpoint_bmm(
     xs: torch.Tensor,
     weights: torch.Tensor,
@@ -172,7 +169,6 @@ def gans_to_manifold(x: torch.Tensor, k: torch.Tensor) -> torch.Tensor:
     return _gans_to_manifold(x, -k)
 
 
-# @torch.jit.script
 def _gans_to_manifold(x: torch.Tensor, k: torch.Tensor):
     r = k.sqrt().to(x.dtype).to(x.device)
     y = r + torch.sqrt(1.0 + x.norm(dim=-1, p=2) ** 2)
@@ -207,7 +203,6 @@ def dist_matmul(x: torch.Tensor, y: torch.Tensor, k: torch.Tensor):
     return _dist_matmul(x, y, k)
 
 
-# @torch.jit.script
 def _dist_matmul(
     x: torch.Tensor,
     y: torch.Tensor,

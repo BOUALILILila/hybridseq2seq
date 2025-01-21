@@ -22,17 +22,6 @@ class BaseModule(nn.Module):
             if module.bias is not None:
                 module.bias.data.zero_()
 
-        # elif isinstance(module, nn.Embedding):
-        #     if self.config.init_embeddings == "xavier":
-        #         torch.nn.init.xavier_uniform_(module.weight)
-        #     elif self.config.init_embeddings == "kaiming":
-        #         torch.nn.init.kaiming_normal_(module.weight)
-        #     elif self.config.init_embeddings == "normal":
-        #         module.weight.data.normal_(mean=0.0, std=0.02)
-
-        #     if module.padding_idx is not None:
-        #         module.weight.data[module.padding_idx].zero_()
-
         elif isinstance(module, nn.LayerNorm):
             module.bias.data.zero_()
             module.weight.data.fill_(1.0)
@@ -43,13 +32,6 @@ class BaseModule(nn.Module):
     @classmethod
     def from_pretrained(cls, path, config, load_function: Callable = torch.load):
         """Loads a model saved on local storage."""
-        # config_file_path = os.path.join(path, CONFIG_FILE_NAME)
-        # if config is None and os.path.exists(config_file_path):
-        #     logger.info(f"Loading config from {config_file_path}")
-        #     config = Config.load_from_file(config_file_path)
-        # if config is None:
-        #     logger.error(f"config was not specified and {path} does not have a {CONFIG_FILE_NAME} file.")
-
         model = cls(config)
 
         model_weight_path = os.path.join(path, MODEL_WEIGHTS_NAME)

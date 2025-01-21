@@ -1,6 +1,7 @@
 """
     Logger utilities. It improves levels of logger and add coloration for each level
 """
+
 import logging
 import sys
 

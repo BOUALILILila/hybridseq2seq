@@ -64,11 +64,6 @@ class HybridDecoderModel(BaseModule):
             manifold=self.manifold,
         )
 
-        # self.hyperbolic_proj_in_dim = PoincareLinear(
-        #     manifold=self.manifold,
-        #     in_features=config.hyperbolic_hidden_size, out_features=config.hyperbolic_hidden_size
-        # )
-
         self.hybrid_decoder = HybridTransformerDecoder(config, self.manifold)
 
         self.output = DecoderOutput(config)

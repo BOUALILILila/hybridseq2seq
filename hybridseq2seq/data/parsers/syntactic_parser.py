@@ -106,5 +106,5 @@ class SyntacticParser:
                 in_dist_matrix  # eos is added when constructing the distance matrix
             )
         else:
-            exp_in_dist_matrix = in_dist_matrix[:-1,:-1]
+            exp_in_dist_matrix = in_dist_matrix[:-1, :-1]
         return exp_in_dist_matrix, lem_in_seq_tokens

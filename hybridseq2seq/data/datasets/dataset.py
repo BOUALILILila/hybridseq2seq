@@ -345,7 +345,7 @@ class TextDataset(torch.utils.data.Dataset):
         out_seq_ids = self.out_vocabulary(out_seq_tokens)
 
         out_seq_ids += [self.out_vocabulary.eos_idx]
-        
+
         if self.add_sos_token:
             in_seq_ids = [self.in_vocabulary.sos_idx] + in_seq_ids
 

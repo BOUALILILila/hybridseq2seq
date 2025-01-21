@@ -67,9 +67,9 @@ class DependencyGraph:
         D_with_sos[0, 1:n] = D_with_sos[
             n, 1:n
         ]  # Copy end point distances to sos distances
-        D_with_sos[
-            0, n
-        ] = 2  # distance from end point to sos token (both related to the root => d = 2)
+        D_with_sos[0, n] = (
+            2  # distance from end point to sos token (both related to the root => d = 2)
+        )
         D_with_sos[1 : n + 1, 0] = D_with_sos[0, 1 : n + 1]
         return D_with_sos
 

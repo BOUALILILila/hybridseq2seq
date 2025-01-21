@@ -60,11 +60,6 @@ class Config:
     max_position_embeddings: int = field(
         default=256, metadata={"help": "Maximum input sequence length"}
     )
-    # is_decoder: bool = field(
-    #     default=False, metadata={
-    #         "help": "Indicate if we are in a decoder transformer layer if true, else an enocder layer (full attention span)"
-    #     }
-    # )
     layer_norm_eps: float = field(
         default=1e-12, metadata={"help": "Layer norm layers initialization"}
     )
@@ -118,7 +113,6 @@ class Config:
     )
 
     def __post_init__(self):
-        # super().__post_init__()
         assert self.init_embeddings in (
             "normal",
             "xavier",

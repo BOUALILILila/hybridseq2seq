@@ -271,8 +271,6 @@ class EuclideanAttentionWithHyperbolicScores(nn.Module):
         hyperbolic_attention_scores: Optional[torch.FloatTensor] = None,
     ) -> Tuple[torch.FloatTensor]:
         attention_probs = self.dropout(hyperbolic_attention_scores)
-        # hs = self.proj(hidden_states)
-        # attention_output = torch.matmul(attention_probs, hs)
         attention_output = torch.matmul(attention_probs, hidden_states)
 
         attention_output = self.output(attention_output, hidden_states)

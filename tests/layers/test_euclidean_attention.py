@@ -1,6 +1,9 @@
 import pytest
 
-from hybridseq2seq.layers.euclidean_attention import EuclideanAttention, MultiHeadAttention
+from hybridseq2seq.layers.euclidean_attention import (
+    EuclideanAttention,
+    MultiHeadAttention,
+)
 from .conftest import (
     num_heads_wrong,
     get_config,

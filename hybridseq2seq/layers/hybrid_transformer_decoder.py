@@ -11,18 +11,6 @@ from ..utils import get_logger, ACT2FN
 
 logger = get_logger(__name__)
 
-# from bert self attention: https://github.com/huggingface/transformers/blob/main/src/transformers/models/bert/modeling_bert.py
-from typing import Optional, Tuple
-
-import math
-
-import torch
-from torch import nn
-
-from ..utils import get_logger
-
-logger = get_logger(__name__)
-
 
 class HybridTransformerDecoderLayer(nn.Module):
     def __init__(self, config, attention_cls):
@@ -65,7 +53,6 @@ class HybridTransformerDecoderLayer(nn.Module):
             head_mask,
             euclidean_encoder_hidden_states,
             euclidean_encoder_attention_mask,
-            # cross_attn_past_key_value,
             output_attentions=output_attentions,
             hyperbolic_attention_scores=hyperbolic_cross_attention_scores,
         )
@@ -170,7 +157,6 @@ class HybridTransformerDecoder(nn.Module):
                 all_euclidean_hidden_states = all_euclidean_hidden_states + (
                     euclidean_hidden_states,
                 )
-                # all_hyperbolic_hidden_states = all_hyperbolic_hidden_states + (hyperbolic_hidden_states,)
 
             layer_head_mask = head_mask[i] if head_mask is not None else None
 
@@ -182,32 +168,26 @@ class HybridTransformerDecoder(nn.Module):
                 head_mask=layer_head_mask,
                 hyperbolic_self_attention_scores=hyperbolic_self_attention_scores,
                 hyperbolic_cross_attention_scores=hyperbolic_cross_attention_scores,
-                # past_key_value = past_key_value,
                 output_attentions=output_attentions,
             )
 
             euclidean_hidden_states = euclidean_layer_outputs[0]
-            # hyperbolic_hidden_states = hyperbolic_layer_outputs[0]
 
             if output_attentions:
                 all_euclidean_attentions = all_euclidean_attentions + (
                     euclidean_layer_outputs[1],
                 )
-                # all_hyperbolic_attentions = all_hyperbolic_attentions + (hyperbolic_layer_outputs[1],)
 
         if output_hidden_states:
             all_euclidean_hidden_states = all_euclidean_hidden_states + (
                 euclidean_hidden_states,
             )
-            # all_hyperbolic_hidden_states = all_hyperbolic_hidden_states + (hyperbolic_hidden_states,)
 
         return tuple(
             v
             for v in [
                 euclidean_hidden_states,
-                # hyperbolic_hidden_states,
                 all_euclidean_hidden_states,
-                # all_hyperbolic_hidden_states,
                 all_euclidean_attentions,
                 all_hyperbolic_attentions,
             ]
@@ -269,7 +249,6 @@ class DecoderPredictionHead(nn.Module):
         # The output weights are the same as the input embeddings, but there is
         # an output-only bias for each token.
         self.decoder = nn.Linear(config.hidden_size, config.vocab_size, bias=False)
-        # self.bias = nn.Parameter(torch.zeros(config.vocab_size))
 
         if config.tie_input_output_emb:
             self.decoder.weight = input_embed.weight

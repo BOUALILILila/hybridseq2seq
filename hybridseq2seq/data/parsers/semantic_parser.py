@@ -88,15 +88,20 @@ class DependencyGraph:
         for idx in range(n):
             # Djikstra shortest path ==> lower triangular distance matrix
             p = [
-                self._catch_no_path(
-                    nx.shortest_path_length,
-                    self._graph,
-                    source=self._map[idx],
-                    target=self._map[tgt_id],
-                    weight="weight",
+                (
+                    self._catch_no_path(
+                        nx.shortest_path_length,
+                        self._graph,
+                        source=self._map[idx],
+                        target=self._map[tgt_id],
+                        weight="weight",
+                    )
+                    if (
+                        self._map[idx] in self._graph
+                        and self._map[tgt_id] in self._graph
+                    )
+                    else self.default_max_distance
                 )
-                if (self._map[idx] in self._graph and self._map[tgt_id] in self._graph)
-                else self.default_max_distance
                 for tgt_id in range(idx)
             ]
             D[idx, :idx] = torch.tensor(p)
@@ -483,18 +488,18 @@ class SemanticParser:
                         ]
                         d_rel = torch.stack(closest_orig_token_distances).min(-2).values
                         cross_distance_matrix[i, idx, :src_seq_length] = d_rel
-                        cross_distance_matrix[
-                            i, :src_seq_length, idx
-                        ] = d_rel  # symmetric
+                        cross_distance_matrix[i, :src_seq_length, idx] = (
+                            d_rel  # symmetric
+                        )
                     elif len(dep) == 2:  # original words or variables
                         idx = dep[0] + src_seq_length
                         d_node = self._get_node_distance_from_corresp(
                             cross_distance_matrix[i, :, :src_seq_length], dep[1]
                         )
                         cross_distance_matrix[i, idx, :src_seq_length] = d_node
-                        cross_distance_matrix[
-                            i, :src_seq_length, idx
-                        ] = d_node  # symmetric
+                        cross_distance_matrix[i, :src_seq_length, idx] = (
+                            d_node  # symmetric
+                        )
                     else:
                         raise ValueError(
                             f"Dependency {dep} cannot be trated. Length of a dependency must be of 2 or 3."
@@ -504,9 +509,9 @@ class SemanticParser:
                 target_distance_matrix = target_dependency_graph.get_distance_matrix(
                     len(previous_target_tokens)
                 )  # step = len(previous_...)
-                cross_distance_matrix[
-                    i, src_seq_length:, src_seq_length:
-                ] = target_distance_matrix
+                cross_distance_matrix[i, src_seq_length:, src_seq_length:] = (
+                    target_distance_matrix
+                )
                 assert torch.allclose(
                     cross_distance_matrix[i],
                     cross_distance_matrix[i].T,
@@ -551,9 +556,9 @@ class SemanticParser:
                 dtype=target_attention_mask_step.dtype,
             )
             previous_target_seq = " ".join(previous_target_tokens)
-            cross_distance_matrix[
-                :src_seq_length, :src_seq_length
-            ] = source_distance_matrix.clone().detach()
+            cross_distance_matrix[:src_seq_length, :src_seq_length] = (
+                source_distance_matrix.clone().detach()
+            )
             try:
                 (
                     target_dependency_graph,
@@ -598,9 +603,9 @@ class SemanticParser:
             target_distance_matrix = target_dependency_graph.get_distance_matrix(
                 len(previous_target_tokens)
             )  # step = len(previous_...)
-            cross_distance_matrix[
-                src_seq_length:, src_seq_length:
-            ] = target_distance_matrix
+            cross_distance_matrix[src_seq_length:, src_seq_length:] = (
+                target_distance_matrix
+            )
             assert torch.allclose(
                 cross_distance_matrix,
                 cross_distance_matrix.T,

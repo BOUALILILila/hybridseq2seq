@@ -51,10 +51,6 @@ class HMDSEmbeddingFromCrossDistances:
 
             bs = previous_target_hyperbolic_attention_mask.shape[0]
             for i in range(bs):
-                e = None if (running is None) else (not running[i])
-                # print("instance ", i)
-                # print("tgt = ", previous_target_tokens_list[i])
-                # print("ended = ", e)
                 # Get the cross-distance matrix + mask
                 (
                     cross_distance_mat_step,
@@ -104,7 +100,7 @@ class HMDSEmbeddingFromCrossDistances:
         )
 
 
-# Copied from https://github.com/mil-tokyo/hyperbolic_nn_plusplus/blob/main/geoopt_plusplus/modules/embedding.py
+# Orginal code https://github.com/mil-tokyo/hyperbolic_nn_plusplus/blob/main/geoopt_plusplus/modules/embedding.py
 class PoincareEmbedding(nn.Module):
     r"""A simple lookup table that stores embeddings of a fixed dictionary and size.
 
@@ -117,7 +113,8 @@ class PoincareEmbedding(nn.Module):
         embedding_dim (int): the size of each embedding vector
         padding_idx (int, optional): If given, pads the output with the embedding vector at :attr:`padding_idx`
                                          (initialized to zeros) whenever it encounters the index.
-        max_norm (float, optional): If given, each embedding vector with norm larger than :attr:`max_norm`
+        max_norm: Optional[float]
+            If given, each embedding vector with norm larger than :attr:`max_norm`
                                     is renormalized to have norm :attr:`max_norm`.
         norm_type (float, optional): The p of the p-norm to compute for the :attr:`max_norm` option. Default ``2``.
         scale_grad_by_freq (boolean, optional): If given, this will scale gradients by the inverse of frequency of
@@ -173,6 +170,7 @@ class PoincareEmbedding(nn.Module):
                  [ 0.0000,  0.0000,  0.0000],
                  [-0.1655,  0.9897,  0.0635]]])
     """
+
     __constants__ = [
         "num_embeddings",
         "embedding_dim",
@@ -220,7 +218,6 @@ class PoincareEmbedding(nn.Module):
             self.weight = ManifoldParameter(
                 torch.empty(num_embeddings, embedding_dim), manifold=manifold
             )
-            # self.weight = nn.Parameter(torch.Tensor(num_embeddings, embedding_dim))
             self.reset_parameters()
         else:
             assert list(_weight.shape) == [
@@ -228,7 +225,6 @@ class PoincareEmbedding(nn.Module):
                 embedding_dim,
             ], "Shape of weight does not match num_embeddings and embedding_dim"
             self.weight = ManifoldParameter(_weight, manifold=manifold)
-            # self.weight =  nn.Parameter(_weight)
         self.sparse = sparse
 
     def reset_parameters(self):
@@ -239,12 +235,10 @@ class PoincareEmbedding(nn.Module):
                 std=self.init_std / self.manifold.c.data.sqrt()
             )
             self.weight.data.copy_(self.manifold.expmap0(direction * distance))
-            # self.weight.data.copy_(direction * distance)
             if self.padding_idx is not None:
                 self.weight[self.padding_idx].fill_(0)
 
     def forward(self, input):
-        # return self.manifold.expmap0(F.embedding(
         return F.embedding(
             input,
             self.weight,

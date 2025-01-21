@@ -69,10 +69,6 @@ class COGSTask(Task):
                     f"There were unexpected keys when loading weights from the Euclidean checkpoint: {load_result.unexpected_keys}."
                 )
 
-            # for n, p in model.named_parameters():
-            #     if n in state_dict:
-            #         assert torch.all(p.eq(state_dict[n])), f"parameter mismatch {n}"
-
             if self.config.model.freeze_euclidean_weights:
                 logger.info(f"Freezing all Euclidean model weights.")
                 trainable_params = set()
@@ -81,10 +77,8 @@ class COGSTask(Task):
                         param.requires_grad = False
                     else:
                         trainable_params.add(name)
-                    # print(f"p_name = {name} => requires_grad = {param.requires_grad}")
 
                 logger.info(f"Trainable parameters: {trainable_params}")
-        # print(model)
         return model
 
     def create_data_module(self):
@@ -116,15 +110,6 @@ class COGSTask(Task):
         )
         loss = self.criterion(logits, batch["labels"])
 
-        # self.train_metric.update(
-        #     preds=torch.argmax(logits, dim=-1, keepdim=False), # (bs, T)
-        #     len_preds=batch["target_seq_len"],
-        #     targets=batch["labels"],
-        #     len_targets=batch["target_seq_len"],
-        #     data=batch,
-        #     decode=self.decode,
-        # )
-
         self.log(
             "train/loss",
             loss,
@@ -136,14 +121,7 @@ class COGSTask(Task):
         )
         return {"loss": loss, "logits": logits, "target": batch["labels"]}
 
-    # def on_train_epoch_end(self):
-    #     # update and log
-    #     metrics = self.train_metric.compute(split="train")
-    #     self.log_dict(metrics, logger=True, prog_bar=True)
-    #     self.train_metric.reset()
-
     def validation_step(self, batch, batch_idx):
-        # if self.config.model.generation.stop_criteria.max_len is None:
         self.config.model.generation.stop_criteria.max_len = batch["labels"].shape[1]
         outputs = self.model.generate(
             source_token_ids=batch["source_token_ids"],
@@ -180,7 +158,6 @@ class COGSTask(Task):
         self.val_metric.reset()
 
     def test_step(self, batch, batch_idx):
-        # if self.config.model.generation.stop_criteria.max_len is None:
         self.config.model.generation.stop_criteria.max_len = batch["labels"].shape[1]
 
         outputs = self.model.generate(
@@ -214,11 +191,6 @@ class COGSTask(Task):
         # update and log
         metrics = self.test_metric.compute(split="test")
         self.log_dict(metrics, logger=True)
-
-        # str_out = ""
-        # for metric in metrics:
-        #     str_out += f"{metric}={metrics[metric]:05.2%}, "
-        # logger.info(f"\n Test metrics: {str_out}")
 
         self.test_metric.reset()
 

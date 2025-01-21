@@ -4,7 +4,6 @@ import torch
 
 from .base import BaseModule
 from ..layers import TransformerEmbeddings, TransformerEncoder
-
 from ..utils import get_logger
 
 logger = get_logger(__name__)
